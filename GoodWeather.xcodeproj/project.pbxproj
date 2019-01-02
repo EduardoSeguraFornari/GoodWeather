@@ -74,6 +74,7 @@
 				9132438021DD27C90008AF7B /* Sources */,
 				9132438121DD27C90008AF7B /* Frameworks */,
 				9132438221DD27C90008AF7B /* Resources */,
+				914BB60E21DD2E2E00CB1909 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -129,6 +130,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		914BB60E21DD2E2E00CB1909 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9132438021DD27C90008AF7B /* Sources */ = {
@@ -283,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GoodWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -300,6 +322,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GoodWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
