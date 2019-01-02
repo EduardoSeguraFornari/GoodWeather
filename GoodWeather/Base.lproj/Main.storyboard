@@ -19,13 +19,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="YKd-aB-UKn">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherTableViewCell" rowHeight="100" id="YKd-aB-UKn" customClass="WeatherTableViewCell" customModule="GoodWeather" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YKd-aB-UKn" id="edg-vN-Lba">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Jose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOg-bP-vgj">
+                                            <rect key="frame" x="16" y="36" width="88" height="27"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9w-Be-hdc">
+                                            <rect key="frame" x="274" y="18" width="85" height="63"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="52"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="SOg-bP-vgj" secondAttribute="bottom" constant="36.5" id="Hzu-gh-WaV"/>
+                                        <constraint firstItem="SOg-bP-vgj" firstAttribute="top" secondItem="edg-vN-Lba" secondAttribute="top" constant="36" id="aaa-eC-46t"/>
+                                        <constraint firstAttribute="trailing" secondItem="j9w-Be-hdc" secondAttribute="trailing" constant="16" id="cyU-pR-0EI"/>
+                                        <constraint firstItem="SOg-bP-vgj" firstAttribute="leading" secondItem="edg-vN-Lba" secondAttribute="leading" constant="16" id="iEO-Pk-erh"/>
+                                        <constraint firstAttribute="bottom" secondItem="j9w-Be-hdc" secondAttribute="bottom" constant="18.5" id="vlq-Tv-Feg"/>
+                                        <constraint firstItem="j9w-Be-hdc" firstAttribute="top" secondItem="edg-vN-Lba" secondAttribute="top" constant="18" id="xOf-kh-3By"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="locationNameLabel" destination="SOg-bP-vgj" id="1xU-gY-mh0"/>
+                                    <outlet property="temperatureLabel" destination="j9w-Be-hdc" id="GHk-hx-cd6"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

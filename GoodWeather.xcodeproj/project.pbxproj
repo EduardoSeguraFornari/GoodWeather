@@ -13,6 +13,7 @@
 		9132439221DD27CA0008AF7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9132439021DD27CA0008AF7B /* LaunchScreen.storyboard */; };
 		914BB61121DD301100CB1909 /* WeatherListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */; };
 		914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61221DD303000CB1909 /* AddLocationViewController.swift */; };
+		914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		9132439321DD27CA0008AF7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListTableViewController.swift; sourceTree = "<group>"; };
 		914BB61221DD303000CB1909 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		9132438621DD27C90008AF7B /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				914BB61421DD3ED200CB1909 /* Custom Cells */,
 				914BB60F21DD2F6000CB1909 /* Controllers */,
 				9132438721DD27C90008AF7B /* AppDelegate.swift */,
 				9132438B21DD27C90008AF7B /* Main.storyboard */,
@@ -69,10 +72,18 @@
 		914BB60F21DD2F6000CB1909 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */,
 				914BB61221DD303000CB1909 /* AddLocationViewController.swift */,
+				914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		914BB61421DD3ED200CB1909 /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */,
+			);
+			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +178,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */,
 				914BB61121DD301100CB1909 /* WeatherListTableViewController.swift in Sources */,
 				914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */,
 				9132438821DD27C90008AF7B /* AppDelegate.swift in Sources */,
