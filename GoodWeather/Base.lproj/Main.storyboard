@@ -79,16 +79,41 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: San Jose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Led-e0-A3h">
+                                <rect key="frame" x="20" y="84" width="335" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Led-e0-A3h" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0cG-IT-upb"/>
+                            <constraint firstItem="Led-e0-A3h" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MHW-Es-D9T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Led-e0-A3h" secondAttribute="trailing" constant="20" id="Ua9-Mz-UL8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Location" id="wqh-RX-KFa">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oWF-68-GI7"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oWF-68-GI7">
+                            <connections>
+                                <action selector="cancelButtonDidTapped" destination="BYZ-38-t0r" id="oYu-Kt-Njw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1wA-3O-NAa">
+                            <connections>
+                                <action selector="saveButtonDidTapped" destination="BYZ-38-t0r" id="AUl-dy-ArT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="locationTextField" destination="Led-e0-A3h" id="Za1-qJ-zrs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="133"/>
+            <point key="canvasLocation" x="1828" y="132.68365817091455"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ifx-qi-02M">
