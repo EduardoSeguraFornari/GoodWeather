@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0836F121DFE04F00409106 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0836F021DFE04F00409106 /* SettingsViewModel.swift */; };
 		7E52555121DE19AB00CED854 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52555021DE19AB00CED854 /* Webservice.swift */; };
 		7E52555721DE25D800CED854 /* WeatherListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E52555621DE25D800CED854 /* WeatherListViewModel.swift */; };
 		7E790E1221DFB33600548C8E /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E790E1121DFB33600548C8E /* Double+Extensions.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E0836F021DFE04F00409106 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		7E52555021DE19AB00CED854 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 		7E52555621DE25D800CED854 /* WeatherListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherListViewModel.swift; sourceTree = "<group>"; };
 		7E790E1121DFB33600548C8E /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		7E52555521DE25C200CED854 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				7E0836F021DFE04F00409106 /* SettingsViewModel.swift */,
 				7E52555621DE25D800CED854 /* WeatherListViewModel.swift */,
 			);
 			path = ViewModels;
@@ -222,6 +225,7 @@
 				7E52555121DE19AB00CED854 /* Webservice.swift in Sources */,
 				9132438821DD27C90008AF7B /* AppDelegate.swift in Sources */,
 				7E52555721DE25D800CED854 /* WeatherListViewModel.swift in Sources */,
+				7E0836F121DFE04F00409106 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
