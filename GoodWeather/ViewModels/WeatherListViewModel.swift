@@ -12,9 +12,24 @@ import Foundation
     private var weatherViewModels = [WeatherViewModel]()
  }
 
- struct WeatherViewModel  {
+struct WeatherViewModel: Codable {
     let name: String
-    let temperature: Double
-    let temperatureMin: Double
-    let temperatureMax: Double
+    let temperature: TemperatureViewModel
+
+    private enum CodingKeys: String, CodingKey {
+        case name
+        case temperature = "main"
+    }
  }
+
+struct TemperatureViewModel: Codable {
+    let current: Double
+    let min: Double
+    let max: Double
+
+    private enum CodingKeys: String, CodingKey {
+        case current = "temp"
+        case min = "temp_min"
+        case max = "temp_max"
+    }
+}

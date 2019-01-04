@@ -14,9 +14,14 @@ class AddLocationViewController: UIViewController {
 
     @IBAction private func saveButtonDidTapped() {
         if let location = locationTextField.text {
-            if let weatherURL = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(location)&appid=f9e1e933016cf95809a531e8a4b032c8&units=imperial") {
+            let urlString = "https://api.openweathermap.org/data/2.5/weather?" +
+                            "q=\(location)" +
+                            "&appid=f9e1e933016cf95809a531e8a4b032c8" +
+                            "&units=imperial"
+            if let weatherURL = URL(string: urlString) {
                 let weatherResource = Resource<Any>(url: weatherURL) { data in
-                    return data
+                    let weatherViewModel = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
+                    return weatherViewModel
                 }
                 Webservice().load(resource: weatherResource) { result in
                     
