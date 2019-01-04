@@ -10,6 +10,18 @@ import Foundation
 
  struct WeatherListViewModel {
     private var weatherViewModels = [WeatherViewModel]()
+
+    public mutating func add(weatherViewModel: WeatherViewModel) {
+        weatherViewModels.append(weatherViewModel)
+    }
+
+    public func numberOfRows(for section: Int) -> Int {
+        return weatherViewModels.count
+    }
+
+    public func model(at index: Int) -> WeatherViewModel{
+        return weatherViewModels[index]
+    }
  }
 
 struct WeatherViewModel: Codable {
