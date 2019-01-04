@@ -60,10 +60,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="GoodWeather" id="DOb-h4-DZO">
-                        <barButtonItem key="leftBarButtonItem" title="Settings" image="settings" id="8Al-CC-8YR"/>
+                        <barButtonItem key="leftBarButtonItem" title="Settings" image="settings" id="8Al-CC-8YR">
+                            <connections>
+                                <segue destination="eZw-LQ-zte" kind="presentation" identifier="SettingsTableViewController" id="exF-bJ-Jsr"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="0Eg-8f-cYb">
                             <connections>
-                                <segue destination="72m-Mk-o26" kind="presentation" id="NAd-UN-SPq"/>
+                                <segue destination="72m-Mk-o26" kind="presentation" identifier="AddLocationViewController" id="NAd-UN-SPq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -113,7 +117,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1828" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1873" y="133"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ifx-qi-02M">
@@ -133,6 +137,37 @@
             </objects>
             <point key="canvasLocation" x="-390" y="133"/>
         </scene>
+        <!--Settings Table View Controller-->
+        <scene sceneID="fTF-KM-P8p">
+            <objects>
+                <tableViewController id="ksF-ih-egv" customClass="SettingsTableViewController" customModule="GoodWeather" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fZh-HE-6k1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="auG-J1-7ej">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="auG-J1-7ej" id="qXb-6L-7yf">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ksF-ih-egv" id="kc8-sY-Unh"/>
+                            <outlet property="delegate" destination="ksF-ih-egv" id="3l7-Xw-gAD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gB4-g6-liw">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="efN-LF-QKI"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jlc-NW-BfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1873" y="-521"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ml0-SQ-Anm">
             <objects>
@@ -149,7 +184,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AkV-Gd-GZx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1137" y="133"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="M5e-mL-GyX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eZw-LQ-zte" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="GfU-iC-ZD4">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ksF-ih-egv" kind="relationship" relationship="rootViewController" id="rTh-Hg-CF1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XOZ-E8-8HI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1136.8" y="-521.28935532233891"/>
         </scene>
     </scenes>
     <resources>

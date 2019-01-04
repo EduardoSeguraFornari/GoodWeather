@@ -14,6 +14,8 @@ protocol AddWeatherDelegate: class {
 
 class AddLocationViewController: UIViewController {
 
+    public static let segueIdentifier = String(describing: AddLocationViewController.self)
+
     @IBOutlet private weak var locationTextField: UITextField!
 
     public weak var delegate: AddWeatherDelegate?

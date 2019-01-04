@@ -29,15 +29,25 @@ class WeatherListTableViewController: UITableViewController {
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == AddLocationViewController.segueIdentifier {
+            prepareSegueForAddLocationViewController(with: segue)
+        } else if segue.identifier == SettingsTableViewController.segueIdentifier {
+            prepareSegueForSettingsTableViewController(with: segue)
+        }
+    }
+
+    private func prepareSegueForAddLocationViewController(with segue: UIStoryboardSegue) {
         guard let navigationController = segue.destination as? UINavigationController else {
             fatalError("NavigationController not found")
         }
         guard let addLocationViewController = navigationController.viewControllers.first as?
             AddLocationViewController else {
-            fatalError("AddLocationViewController not found")
+                fatalError("AddLocationViewController not found")
         }
         addLocationViewController.delegate = self
     }
+
+    private func prepareSegueForSettingsTableViewController(with segue: UIStoryboardSegue) { }
 }
 
 // MARK: - AddWeatherDelegate
