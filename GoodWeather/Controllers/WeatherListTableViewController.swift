@@ -23,4 +23,24 @@ class WeatherListTableViewController: UITableViewController {
         }
         fatalError()
     }
+
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let navigationController = segue.destination as? UINavigationController else {
+            fatalError("NavigationController not found")
+        }
+        guard let addLocationViewController = navigationController.viewControllers.first as?
+            AddLocationViewController else {
+            fatalError("AddLocationViewController not found")
+        }
+        addLocationViewController.delegate = self
+    }
+}
+
+// MARK: - AddWeatherDelegate
+extension WeatherListTableViewController: AddWeatherDelegate {
+    func addWeatherDidSave(weatherViewModel: WeatherViewModel) {
+        print(weatherViewModel.name)
+    }
 }
