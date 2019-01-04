@@ -12,7 +12,11 @@ class WeatherTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: WeatherTableViewCell.self)
 
-    @IBOutlet weak var locationNameLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet private weak var locationNameLabel: UILabel!
+    @IBOutlet private weak var temperatureLabel: UILabel!
 
+    public func configure(with weatherViewModel: WeatherViewModel) {
+        locationNameLabel.text = weatherViewModel.name
+        temperatureLabel.text = weatherViewModel.temperature.current.formatAsDegree
+    }
 }
