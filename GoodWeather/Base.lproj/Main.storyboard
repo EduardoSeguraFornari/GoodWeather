@@ -161,7 +161,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="gB4-g6-liw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="efN-LF-QKI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="efN-LF-QKI">
+                            <connections>
+                                <action selector="doneButtonDidTapped" destination="ksF-ih-egv" id="P10-UC-jEa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jlc-NW-BfB" userLabel="First Responder" sceneMemberID="firstResponder"/>
