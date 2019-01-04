@@ -8,14 +8,22 @@
 
 import UIKit
 
+protocol SettingsDelegate {
+    func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel)
+}
 class SettingsTableViewController: UITableViewController {
 
     public static let segueIdentifier = String(describing: SettingsTableViewController.self)
 
+    public var delegate: SettingsDelegate?
+
     private var settingsViewModel = SettingsViewModel()
 
     @IBAction private func doneButtonDidTapped() {
-        dismiss(animated: true)
+        if let delegate = delegate {
+            delegate.settingsDoneButtonDidTapped(settingsViewModel: settingsViewModel)
+            dismiss(animated: true)
+        }
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsViewModel.units.count

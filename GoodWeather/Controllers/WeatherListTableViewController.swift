@@ -47,7 +47,16 @@ class WeatherListTableViewController: UITableViewController {
         addLocationViewController.delegate = self
     }
 
-    private func prepareSegueForSettingsTableViewController(with segue: UIStoryboardSegue) { }
+    private func prepareSegueForSettingsTableViewController(with segue: UIStoryboardSegue) {
+        guard let navigationController = segue.destination as? UINavigationController else {
+            fatalError("NavigationController not found")
+        }
+        guard let settingsTableViewController = navigationController.viewControllers.first as?
+            SettingsTableViewController else {
+                fatalError("SettingsTableViewController not found")
+        }
+        settingsTableViewController.delegate = self
+    }
 }
 
 // MARK: - AddWeatherDelegate
@@ -55,5 +64,12 @@ extension WeatherListTableViewController: AddWeatherDelegate {
     func addWeatherDidSave(weatherViewModel: WeatherViewModel) {
         weatherListViewModel.add(weatherViewModel: weatherViewModel)
         tableView.reloadData()
+    }
+}
+
+// MARK: - SettingsDelegate
+extension WeatherListTableViewController: SettingsDelegate {
+    func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel) {
+        print("SettingsDelegate")
     }
 }
