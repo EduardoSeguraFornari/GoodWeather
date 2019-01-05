@@ -27,6 +27,11 @@ class WeatherListTableViewController: UITableViewController {
         fatalError()
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let weatherViewModel = weatherListViewModel.model(at: indexPath.row)
+        performSegue(withIdentifier: WeatherDetailViewController.segueIdentifier, sender: weatherViewModel)
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -34,6 +39,8 @@ class WeatherListTableViewController: UITableViewController {
             prepareSegueForAddLocationViewController(with: segue)
         } else if segue.identifier == SettingsTableViewController.segueIdentifier {
             prepareSegueForSettingsTableViewController(with: segue)
+        } else if segue.identifier == WeatherDetailViewController.segueIdentifier {
+            prepareSegueForWeatherDetailViewController(with: segue, and: sender)
         }
     }
 
@@ -58,13 +65,24 @@ class WeatherListTableViewController: UITableViewController {
         }
         settingsTableViewController.delegate = self
     }
+
+    private func prepareSegueForWeatherDetailViewController(with segue: UIStoryboardSegue, and sender: Any?) {
+        guard let weatherDetailViewController = segue.destination as? WeatherDetailViewController,
+            let weatherViewModel =  sender as? WeatherViewModel else {
+                fatalError("WeatherDetailViewController not found")
+        }
+        weatherDetailViewController.weatherViewModel = weatherViewModel
+        weatherDetailViewController.unit = settingsViewModel.selectedUnit
+    }
 }
 
 // MARK: - AddWeatherDelegate
 extension WeatherListTableViewController: AddWeatherDelegate {
     func addWeatherDidSave(weatherViewModel: WeatherViewModel) {
         weatherListViewModel.add(weatherViewModel: weatherViewModel)
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
