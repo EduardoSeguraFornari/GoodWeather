@@ -64,9 +64,9 @@
 		7E52555521DE25C200CED854 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				91AAB57621E043760054A6DC /* AddLocationViewModel.swift */,
 				7E0836F021DFE04F00409106 /* SettingsViewModel.swift */,
 				7E52555621DE25D800CED854 /* WeatherListViewModel.swift */,
-				91AAB57621E043760054A6DC /* AddLocationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";

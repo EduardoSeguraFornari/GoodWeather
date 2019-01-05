@@ -16,27 +16,40 @@ class AddLocationViewController: UIViewController {
 
     public static let segueIdentifier = String(describing: AddLocationViewController.self)
 
-    @IBOutlet private weak var locationTextField: UITextField!
+    private var addLocationViewModel = AddLocationViewModel()
+
+    @IBOutlet private weak var saveButton: UIBarButtonItem!
+
+    @IBOutlet private weak var locationTextField: BindingTextField! {
+        didSet {
+            locationTextField.bind {
+                self.addLocationViewModel.city = $0
+                if self.addLocationViewModel.isValid {
+                    self.saveButton.isEnabled = true
+                } else {
+                    self.saveButton.isEnabled = false
+                }
+            }
+        }
+    }
 
     public weak var delegate: AddWeatherDelegate?
 
     @IBAction private func saveButtonDidTapped() {
-        if let location = locationTextField.text {
-            let urlString = "https://api.openweathermap.org/data/2.5/weather?" +
-                            "q=\(location)" +
-                            "&appid=f9e1e933016cf95809a531e8a4b032c8" +
-                            "&units=imperial"
-            if let weatherURL = URL(string: urlString) {
-                let weatherResource = Resource<WeatherViewModel>(url: weatherURL) { data in
-                    let weatherViewModel = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
-                    return weatherViewModel
-                }
-                Webservice().load(resource: weatherResource) { [weak self] result in
-                    if let weatherViewModel = result {
-                        if let delegate = self?.delegate {
-                            delegate.addWeatherDidSave(weatherViewModel: weatherViewModel)
-                            self?.dismiss(animated: true)
-                        }
+        let urlString = "https://api.openweathermap.org/data/2.5/weather?" +
+                        "q=\(addLocationViewModel.city)" +
+                        "&appid=f9e1e933016cf95809a531e8a4b032c8" +
+                        "&units=imperial"
+        if let weatherURL = URL(string: urlString) {
+            let weatherResource = Resource<WeatherViewModel>(url: weatherURL) { data in
+                let weatherViewModel = try? JSONDecoder().decode(WeatherViewModel.self, from: data)
+                return weatherViewModel
+            }
+            Webservice().load(resource: weatherResource) { [weak self] result in
+                if let weatherViewModel = result {
+                    if let delegate = self?.delegate {
+                        delegate.addWeatherDidSave(weatherViewModel: weatherViewModel)
+                        self?.dismiss(animated: true)
                     }
                 }
             }

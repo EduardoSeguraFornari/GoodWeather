@@ -84,7 +84,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: San Jose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Led-e0-A3h">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ex: San Jose" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Led-e0-A3h" customClass="BindingTextField" customModule="GoodWeather" customModuleProvider="target">
                                 <rect key="frame" x="20" y="84" width="335" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -105,7 +105,7 @@
                                 <action selector="cancelButtonDidTapped" destination="BYZ-38-t0r" id="oYu-Kt-Njw"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1wA-3O-NAa">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="save" id="1wA-3O-NAa">
                             <connections>
                                 <action selector="saveButtonDidTapped" destination="BYZ-38-t0r" id="AUl-dy-ArT"/>
                             </connections>
@@ -113,6 +113,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="locationTextField" destination="Led-e0-A3h" id="Za1-qJ-zrs"/>
+                        <outlet property="saveButton" destination="1wA-3O-NAa" id="eBw-Z3-uf9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

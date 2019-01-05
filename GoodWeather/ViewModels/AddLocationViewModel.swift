@@ -11,3 +11,9 @@ import Foundation
 struct AddLocationViewModel {
     var city: String = ""
 }
+
+extension AddLocationViewModel {
+    var isValid: Bool {
+        return !city.isEmpty
+    }
+}
