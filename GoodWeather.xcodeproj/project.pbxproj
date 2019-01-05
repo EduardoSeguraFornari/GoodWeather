@@ -20,6 +20,7 @@
 		914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61221DD303000CB1909 /* AddLocationViewController.swift */; };
 		914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */; };
 		91AAB57521E042C90054A6DC /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAB57421E042C90054A6DC /* BindingTextField.swift */; };
+		91AAB57721E043760054A6DC /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAB57621E043760054A6DC /* AddLocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		914BB61221DD303000CB1909 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
 		91AAB57421E042C90054A6DC /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
+		91AAB57621E043760054A6DC /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				7E0836F021DFE04F00409106 /* SettingsViewModel.swift */,
 				7E52555621DE25D800CED854 /* WeatherListViewModel.swift */,
+				91AAB57621E043760054A6DC /* AddLocationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91AAB57721E043760054A6DC /* AddLocationViewModel.swift in Sources */,
 				914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */,
 				914BB61121DD301100CB1909 /* WeatherListTableViewController.swift in Sources */,
 				7E790E1221DFB33600548C8E /* Double+Extensions.swift in Sources */,
