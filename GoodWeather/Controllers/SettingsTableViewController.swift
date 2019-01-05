@@ -8,14 +8,14 @@
 
 import UIKit
 
-protocol SettingsDelegate {
+protocol SettingsDelegate: class {
     func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel)
 }
 class SettingsTableViewController: UITableViewController {
 
     public static let segueIdentifier = String(describing: SettingsTableViewController.self)
 
-    public var delegate: SettingsDelegate?
+    public weak var delegate: SettingsDelegate?
 
     private var settingsViewModel = SettingsViewModel()
 
