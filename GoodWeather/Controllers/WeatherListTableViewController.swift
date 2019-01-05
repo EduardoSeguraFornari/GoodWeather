@@ -11,6 +11,7 @@ import UIKit
 class WeatherListTableViewController: UITableViewController {
 
     private var weatherListViewModel = WeatherListViewModel()
+    private var settingsViewModel = SettingsViewModel()
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return weatherListViewModel.numberOfRows(for: section)
@@ -20,7 +21,7 @@ class WeatherListTableViewController: UITableViewController {
         if let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier,
                                                     for: indexPath) as? WeatherTableViewCell {
             let weatherViewModel = weatherListViewModel.model(at: indexPath.row)
-            cell.configure(with: weatherViewModel)
+            cell.configure(with: weatherViewModel, and: settingsViewModel.selectedUnit)
             return cell
         }
         fatalError()
@@ -70,6 +71,7 @@ extension WeatherListTableViewController: AddWeatherDelegate {
 // MARK: - SettingsDelegate
 extension WeatherListTableViewController: SettingsDelegate {
     func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel) {
-        print("SettingsDelegate")
+        self.settingsViewModel = settingsViewModel
+        tableView.reloadData()
     }
 }
