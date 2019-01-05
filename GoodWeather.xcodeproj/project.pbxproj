@@ -19,6 +19,7 @@
 		914BB61121DD301100CB1909 /* WeatherListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */; };
 		914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61221DD303000CB1909 /* AddLocationViewController.swift */; };
 		914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */; };
+		91AAB57521E042C90054A6DC /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAB57421E042C90054A6DC /* BindingTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListTableViewController.swift; sourceTree = "<group>"; };
 		914BB61221DD303000CB1909 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
+		91AAB57421E042C90054A6DC /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		9132438621DD27C90008AF7B /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				91AAB57321E042AA0054A6DC /* Custom Controls */,
 				914BB61421DD3ED200CB1909 /* Custom Cells */,
 				914BB60F21DD2F6000CB1909 /* Controllers */,
 				7E790E1021DFB2F800548C8E /* Extensions */,
@@ -123,6 +126,14 @@
 				914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */,
 			);
 			path = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		91AAB57321E042AA0054A6DC /* Custom Controls */ = {
+			isa = PBXGroup;
+			children = (
+				91AAB57421E042C90054A6DC /* BindingTextField.swift */,
+			);
+			path = "Custom Controls";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +235,7 @@
 				7E790E1421DFC16F00548C8E /* SettingsTableViewController.swift in Sources */,
 				7E52555121DE19AB00CED854 /* Webservice.swift in Sources */,
 				9132438821DD27C90008AF7B /* AppDelegate.swift in Sources */,
+				91AAB57521E042C90054A6DC /* BindingTextField.swift in Sources */,
 				7E52555721DE25D800CED854 /* WeatherListViewModel.swift in Sources */,
 				7E0836F121DFE04F00409106 /* SettingsViewModel.swift in Sources */,
 			);
