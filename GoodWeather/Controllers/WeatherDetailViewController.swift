@@ -21,18 +21,36 @@ class WeatherDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = weatherViewModel?.name
-        if let unit = unit {
-            if unit == .celsius {
-                temperatureLabel.text = weatherViewModel?.temperature.current.fahrenheitToCelsius.formatAsDegree
-                temperatureMinLabel.text = weatherViewModel?.temperature.min.fahrenheitToCelsius.formatAsDegree
-                temperatureMaxLabel.text = weatherViewModel?.temperature.max.fahrenheitToCelsius.formatAsDegree
-            } else {
-                temperatureLabel.text = weatherViewModel?.temperature.current.formatAsDegree
-                temperatureMinLabel.text = weatherViewModel?.temperature.min.formatAsDegree
-                temperatureMaxLabel.text = weatherViewModel?.temperature.max.formatAsDegree
+
+        setViewModelBindings()
+    }
+
+    private func setViewModelBindings() {
+        if let weatherViewModel = self.weatherViewModel {
+            weatherViewModel.name.bind { self.title = $0 }
+            if let unit = unit {
+                if unit == .celsius {
+                    weatherViewModel.temperature.current.bind {
+                        self.temperatureLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                    }
+                    weatherViewModel.temperature.max.bind {
+                        self.temperatureMaxLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                    }
+                    weatherViewModel.temperature.min.bind {
+                        self.temperatureMinLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                    }
+                } else {
+                    weatherViewModel.temperature.current.bind {
+                        self.temperatureLabel.text = $0.formatAsDegree
+                    }
+                    weatherViewModel.temperature.max.bind {
+                        self.temperatureMaxLabel.text = $0.formatAsDegree
+                    }
+                    weatherViewModel.temperature.min.bind {
+                        self.temperatureMinLabel.text = $0.formatAsDegree
+                    }
+                }
             }
         }
-        
     }
 }

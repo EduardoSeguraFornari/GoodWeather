@@ -16,11 +16,11 @@ class WeatherTableViewCell: UITableViewCell {
     @IBOutlet private weak var temperatureLabel: UILabel!
 
     public func configure(with weatherViewModel: WeatherViewModel, and unit: Unit) {
-        locationNameLabel.text = weatherViewModel.name
+        locationNameLabel.text = weatherViewModel.name.value
         if unit == .celsius {
-            temperatureLabel.text = weatherViewModel.temperature.current.fahrenheitToCelsius.formatAsDegree
+            temperatureLabel.text = weatherViewModel.temperature.current.value.fahrenheitToCelsius.formatAsDegree
         } else {
-            temperatureLabel.text = weatherViewModel.temperature.current.formatAsDegree
+            temperatureLabel.text = weatherViewModel.temperature.current.value.formatAsDegree
         }
     }
 }
