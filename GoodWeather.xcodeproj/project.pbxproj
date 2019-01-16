@@ -19,7 +19,6 @@
 		914BB61121DD301100CB1909 /* WeatherListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */; };
 		914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61221DD303000CB1909 /* AddLocationViewController.swift */; };
 		914BB61621DD3EF700CB1909 /* WeatherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */; };
-		9175D14821EEA8D200F65F7B /* WeatherDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175D14721EEA8D200F65F7B /* WeatherDataSource.swift */; };
 		9175D14A21EEC25600F65F7B /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9175D14921EEC25600F65F7B /* TableViewDataSource.swift */; };
 		91AAB57521E042C90054A6DC /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAB57421E042C90054A6DC /* BindingTextField.swift */; };
 		91AAB57721E043760054A6DC /* AddLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91AAB57621E043760054A6DC /* AddLocationViewModel.swift */; };
@@ -41,7 +40,6 @@
 		914BB61021DD301100CB1909 /* WeatherListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListTableViewController.swift; sourceTree = "<group>"; };
 		914BB61221DD303000CB1909 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		914BB61521DD3EF700CB1909 /* WeatherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewCell.swift; sourceTree = "<group>"; };
-		9175D14721EEA8D200F65F7B /* WeatherDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDataSource.swift; sourceTree = "<group>"; };
 		9175D14921EEC25600F65F7B /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		91AAB57421E042C90054A6DC /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
 		91AAB57621E043760054A6DC /* AddLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewModel.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 		9175D14621EEA83000F65F7B /* Data Source */ = {
 			isa = PBXGroup;
 			children = (
-				9175D14721EEA8D200F65F7B /* WeatherDataSource.swift */,
 				9175D14921EEC25600F65F7B /* TableViewDataSource.swift */,
 			);
 			path = "Data Source";
@@ -254,7 +251,6 @@
 				7E790E1221DFB33600548C8E /* Double+Extensions.swift in Sources */,
 				914BB61321DD303000CB1909 /* AddLocationViewController.swift in Sources */,
 				7E790E1421DFC16F00548C8E /* SettingsTableViewController.swift in Sources */,
-				9175D14821EEA8D200F65F7B /* WeatherDataSource.swift in Sources */,
 				91AAB57921E04E180054A6DC /* WeatherDetailViewController.swift in Sources */,
 				7E52555121DE19AB00CED854 /* Webservice.swift in Sources */,
 				9132438821DD27C90008AF7B /* AppDelegate.swift in Sources */,
@@ -408,7 +404,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = GoodWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -426,7 +422,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = JM5PLAS48Y;
 				INFOPLIST_FILE = GoodWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

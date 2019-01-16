@@ -11,13 +11,19 @@ import UIKit
 class WeatherListTableViewController: UITableViewController {
 
     private var weatherListViewModel = WeatherListViewModel()
-    private var dataSource: WeatherDataSource?
+
+    private var dataSource: TableViewDataSource<WeatherTableViewCell, WeatherViewModel>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         weatherListViewModel.unit = SettingsViewModel().selectedUnit
-        dataSource = WeatherDataSource(weatherListViewModel)
+        dataSource = TableViewDataSource(
+            cellIdentifier: WeatherTableViewCell.identifier,
+            items: weatherListViewModel.weatherViewModels) { cell, viewModel in
+                cell.configure(with: viewModel, and: self.weatherListViewModel.unit)
+        }
+
         tableView.dataSource = dataSource
     }
 
@@ -27,7 +33,6 @@ class WeatherListTableViewController: UITableViewController {
     }
 
     // MARK: - Navigation
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == AddLocationViewController.segueIdentifier {
             prepareSegueForAddLocationViewController(with: segue)
@@ -74,6 +79,7 @@ class WeatherListTableViewController: UITableViewController {
 extension WeatherListTableViewController: AddWeatherDelegate {
     func addWeatherDidSave(weatherViewModel: WeatherViewModel) {
         weatherListViewModel.add(weatherViewModel: weatherViewModel)
+        dataSource?.updateItems(self.weatherListViewModel.weatherViewModels)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

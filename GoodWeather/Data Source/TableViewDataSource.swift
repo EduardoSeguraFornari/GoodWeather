@@ -22,11 +22,11 @@ class TableViewDataSource<CellType, ViewModel>: NSObject, UITableViewDataSource 
         self.configureCell = configureCell
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    internal func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    internal func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
             as? CellType else {
             fatalError("Cell with identifier \(cellIdentifier) not found")
@@ -34,5 +34,9 @@ class TableViewDataSource<CellType, ViewModel>: NSObject, UITableViewDataSource 
         let viewModel = items[indexPath.row]
         configureCell(cell, viewModel)
         return cell
+    }
+
+    public func updateItems(_ items: [ViewModel]) {
+        self.items = items
     }
 }

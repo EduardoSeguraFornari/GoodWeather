@@ -9,7 +9,7 @@
 import Foundation
 
  class WeatherListViewModel {
-    private var weatherViewModels = [WeatherViewModel]()
+    public private(set) var weatherViewModels = [WeatherViewModel]()
     public var unit: Unit = .fahrenheit
 
     public func add(weatherViewModel: WeatherViewModel) {
