@@ -11,20 +11,14 @@ import UIKit
 class WeatherListTableViewController: UITableViewController {
 
     private var weatherListViewModel = WeatherListViewModel()
-    private var settingsViewModel = SettingsViewModel()
+    private var dataSource: WeatherDataSource?
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return weatherListViewModel.numberOfRows(for: section)
-    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: WeatherTableViewCell.identifier,
-                                                    for: indexPath) as? WeatherTableViewCell {
-            let weatherViewModel = weatherListViewModel.model(at: indexPath.row)
-            cell.configure(with: weatherViewModel, and: settingsViewModel.selectedUnit)
-            return cell
-        }
-        fatalError()
+        weatherListViewModel.unit = SettingsViewModel().selectedUnit
+        dataSource = WeatherDataSource(weatherListViewModel)
+        tableView.dataSource = dataSource
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -72,7 +66,7 @@ class WeatherListTableViewController: UITableViewController {
                 fatalError("WeatherDetailViewController not found")
         }
         weatherDetailViewController.weatherViewModel = weatherViewModel
-        weatherDetailViewController.unit = settingsViewModel.selectedUnit
+        weatherDetailViewController.unit = weatherListViewModel.unit
     }
 }
 
@@ -89,7 +83,7 @@ extension WeatherListTableViewController: AddWeatherDelegate {
 // MARK: - SettingsDelegate
 extension WeatherListTableViewController: SettingsDelegate {
     func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel) {
-        self.settingsViewModel = settingsViewModel
+        weatherListViewModel.unit = settingsViewModel.selectedUnit
         tableView.reloadData()
     }
 }

@@ -8,10 +8,11 @@
 
 import Foundation
 
- struct WeatherListViewModel {
+ class WeatherListViewModel {
     private var weatherViewModels = [WeatherViewModel]()
+    public var unit: Unit = .fahrenheit
 
-    public mutating func add(weatherViewModel: WeatherViewModel) {
+    public func add(weatherViewModel: WeatherViewModel) {
         weatherViewModels.append(weatherViewModel)
     }
 
@@ -19,7 +20,7 @@ import Foundation
         return weatherViewModels.count
     }
 
-    public func model(at index: Int) -> WeatherViewModel {
+    public func model(at index: Int, for section: Int = 0) -> WeatherViewModel {
         return weatherViewModels[index]
     }
  }
