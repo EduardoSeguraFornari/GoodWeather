@@ -26,7 +26,7 @@ extension Unit {
 
 class SettingsViewModel {
 
-    private let userDefaultsKey = "unit"
+    static let userDefaultsKey = "unit"
 
     let units = Unit.allCases
 
@@ -34,14 +34,14 @@ class SettingsViewModel {
     var selectedUnit: Unit {
         get {
             let userDefaults = UserDefaults.standard
-            if let value = userDefaults.value(forKey: userDefaultsKey) as? String {
+            if let value = userDefaults.value(forKey: SettingsViewModel.userDefaultsKey) as? String {
                 _selectedUnit =  Unit(rawValue: value) ?? .fahrenheit
             }
             return _selectedUnit
         }
         set {
             let userDefaults = UserDefaults.standard
-            userDefaults.set(newValue.rawValue, forKey: userDefaultsKey)
+            userDefaults.set(newValue.rawValue, forKey: SettingsViewModel.userDefaultsKey)
         }
     }
 

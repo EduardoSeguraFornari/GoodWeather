@@ -16,11 +16,7 @@ import Foundation
         weatherViewModels.append(weatherViewModel)
     }
 
-    public func numberOfRows(for section: Int) -> Int {
-        return weatherViewModels.count
-    }
-
-    public func model(at index: Int, for section: Int = 0) -> WeatherViewModel {
+    public func model(at index: Int) -> WeatherViewModel {
         return weatherViewModels[index]
     }
  }
@@ -53,7 +49,7 @@ class Dynamic<T>: Codable where T: Codable {
 
 }
 
-struct WeatherViewModel: Codable {
+struct WeatherViewModel: Codable, Equatable {
     let name: Dynamic<String>
     let temperature: TemperatureViewModel
 
@@ -64,10 +60,23 @@ struct WeatherViewModel: Codable {
     }
 
     // MARK: - Init
+    init(name: String, temperature: TemperatureViewModel) {
+        self.name = Dynamic<String>(name)
+        self.temperature = temperature
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         name = Dynamic(try container.decode(String.self, forKey: .name))
         temperature = try container.decode(TemperatureViewModel.self, forKey: .temperature)
+    }
+
+    // MARK: - Equatable
+    static func == (lhs: WeatherViewModel, rhs: WeatherViewModel) -> Bool {
+        return lhs.name.value == rhs.name.value &&
+                lhs.temperature.current.value == rhs.temperature.current.value &&
+                lhs.temperature.max.value == rhs.temperature.max.value &&
+                lhs.temperature.min.value == rhs.temperature.min.value
     }
  }
 
@@ -84,6 +93,12 @@ struct TemperatureViewModel: Codable {
     }
 
     // MARK: - Init
+    init(current: Double, max: Double, min: Double) {
+        self.current = Dynamic<Double>(current)
+        self.max = Dynamic<Double>(max)
+        self.min = Dynamic<Double>(min)
+    }
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         current = Dynamic(try container.decode(Double.self, forKey: .current))

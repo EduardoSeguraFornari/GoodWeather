@@ -79,7 +79,7 @@ class WeatherListTableViewController: UITableViewController {
 extension WeatherListTableViewController: AddWeatherDelegate {
     func addWeatherDidSave(weatherViewModel: WeatherViewModel) {
         weatherListViewModel.add(weatherViewModel: weatherViewModel)
-        dataSource?.updateItems(self.weatherListViewModel.weatherViewModels)
+        dataSource?.updateItems(weatherListViewModel.weatherViewModels)
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
