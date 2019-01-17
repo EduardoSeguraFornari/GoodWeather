@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Unit: String, CaseIterable {
+enum Unit: String, CaseIterable, Codable {
     case celsius = "metric"
     case fahrenheit = "imperial"
 }
@@ -24,25 +24,40 @@ extension Unit {
     }
 }
 
-class SettingsViewModel {
+class SettingsViewModel: Codable {
 
-    static let userDefaultsKey = "unit"
+    static let userDefaultsKey = "SettingsViewModel"
+
+    public static var shared: SettingsViewModel {
+        let userDefaults = UserDefaults.standard
+        if let data = userDefaults.object(forKey: SettingsViewModel.userDefaultsKey) as? Data {
+            if let settingsViewModel = try? PropertyListDecoder().decode(SettingsViewModel.self, from: data) {
+                return settingsViewModel
+            }
+        }
+        return SettingsViewModel()
+    }
 
     let units = Unit.allCases
 
-    private var _selectedUnit = Unit.fahrenheit
-    var selectedUnit: Unit {
-        get {
-            let userDefaults = UserDefaults.standard
-            if let value = userDefaults.value(forKey: SettingsViewModel.userDefaultsKey) as? String {
-                _selectedUnit =  Unit(rawValue: value) ?? .fahrenheit
-            }
-            return _selectedUnit
+    public var selectedUnit: Unit = .fahrenheit {
+        didSet {
+            updateUserDefaults()
         }
-        set {
-            let userDefaults = UserDefaults.standard
-            userDefaults.set(newValue.rawValue, forKey: SettingsViewModel.userDefaultsKey)
-        }
+    }
+
+    // MARK: - Codable
+    private enum CodingKeys: String, CodingKey {
+        case selectedUnit
+    }
+
+    // MARK: - Init
+    private init() { }
+
+    private func updateUserDefaults() {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(try? PropertyListEncoder().encode(self),
+                         forKey: SettingsViewModel.userDefaultsKey)
     }
 
 }

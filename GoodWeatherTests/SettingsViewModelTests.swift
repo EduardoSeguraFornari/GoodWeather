@@ -15,7 +15,7 @@ class SettingsViewModelTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        settingsViewModel = SettingsViewModel()
+        settingsViewModel = SettingsViewModel.shared
     }
 
     override func tearDown() {
@@ -40,9 +40,14 @@ class SettingsViewModelTests: XCTestCase {
     }
 
     func testShouldBeAbleToSaveUserUnitSelection() {
-        let userDefaults = UserDefaults.standard
-        settingsViewModel?.selectedUnit = .celsius
-        XCTAssertNotNil(userDefaults.value(forKey: SettingsViewModel.userDefaultsKey))
+        if let settingsViewModel = settingsViewModel {
+            settingsViewModel.selectedUnit = .fahrenheit
+            XCTAssertEqual(settingsViewModel.selectedUnit, .fahrenheit)
+            let userDefaults = UserDefaults.standard
+            XCTAssertNotNil(userDefaults.value(forKey: SettingsViewModel.userDefaultsKey))
+        } else {
+            XCTFail("settingsViewModel is nil")
+        }
     }
 
     func cleanUserDefaults() {

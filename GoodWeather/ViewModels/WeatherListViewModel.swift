@@ -10,7 +10,6 @@ import Foundation
 
  class WeatherListViewModel {
     public private(set) var weatherViewModels = [WeatherViewModel]()
-    public var unit: Unit = .fahrenheit
 
     public func add(weatherViewModel: WeatherViewModel) {
         weatherViewModels.append(weatherViewModel)
@@ -74,13 +73,11 @@ struct WeatherViewModel: Codable, Equatable {
     // MARK: - Equatable
     static func == (lhs: WeatherViewModel, rhs: WeatherViewModel) -> Bool {
         return lhs.name.value == rhs.name.value &&
-                lhs.temperature.current.value == rhs.temperature.current.value &&
-                lhs.temperature.max.value == rhs.temperature.max.value &&
-                lhs.temperature.min.value == rhs.temperature.min.value
+                lhs.temperature == rhs.temperature
     }
  }
 
-struct TemperatureViewModel: Codable {
+struct TemperatureViewModel: Codable, Equatable {
     let current: Dynamic<Double>
     let max: Dynamic<Double>
     let min: Dynamic<Double>
@@ -104,5 +101,12 @@ struct TemperatureViewModel: Codable {
         current = Dynamic(try container.decode(Double.self, forKey: .current))
         max = Dynamic(try container.decode(Double.self, forKey: .max))
         min = Dynamic(try container.decode(Double.self, forKey: .min))
+    }
+
+    // MARK: - Equatable
+    static func == (lhs: TemperatureViewModel, rhs: TemperatureViewModel) -> Bool {
+        return lhs.current.value == rhs.current.value &&
+            lhs.max.value == rhs.max.value &&
+            lhs.min.value == rhs.min.value
     }
 }

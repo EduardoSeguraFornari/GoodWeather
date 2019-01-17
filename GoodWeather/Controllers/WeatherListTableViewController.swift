@@ -16,12 +16,10 @@ class WeatherListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        weatherListViewModel.unit = SettingsViewModel().selectedUnit
         dataSource = TableViewDataSource(
             cellIdentifier: WeatherTableViewCell.identifier,
             items: weatherListViewModel.weatherViewModels) { cell, viewModel in
-                cell.configure(with: viewModel, and: self.weatherListViewModel.unit)
+                cell.configure(with: viewModel)
         }
 
         tableView.dataSource = dataSource
@@ -71,7 +69,6 @@ class WeatherListTableViewController: UITableViewController {
                 fatalError("WeatherDetailViewController not found")
         }
         weatherDetailViewController.weatherViewModel = weatherViewModel
-        weatherDetailViewController.unit = weatherListViewModel.unit
     }
 }
 
@@ -88,8 +85,7 @@ extension WeatherListTableViewController: AddWeatherDelegate {
 
 // MARK: - SettingsDelegate
 extension WeatherListTableViewController: SettingsDelegate {
-    func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel) {
-        weatherListViewModel.unit = settingsViewModel.selectedUnit
+    func settingsDoneButtonDidTapped() {
         tableView.reloadData()
     }
 }

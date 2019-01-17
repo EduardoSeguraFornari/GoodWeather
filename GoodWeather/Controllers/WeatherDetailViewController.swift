@@ -13,7 +13,6 @@ class WeatherDetailViewController: UIViewController {
     public static let segueIdentifier = String(describing: WeatherDetailViewController.self)
 
     public var weatherViewModel: WeatherViewModel?
-    public var unit: Unit?
 
     @IBOutlet private weak var temperatureLabel: UILabel!
     @IBOutlet private weak var temperatureMinLabel: UILabel!
@@ -28,27 +27,25 @@ class WeatherDetailViewController: UIViewController {
     private func setViewModelBindings() {
         if let weatherViewModel = self.weatherViewModel {
             weatherViewModel.name.bind { self.title = $0 }
-            if let unit = unit {
-                if unit == .celsius {
-                    weatherViewModel.temperature.current.bind {
-                        self.temperatureLabel.text = $0.fahrenheitToCelsius.formatAsDegree
-                    }
-                    weatherViewModel.temperature.max.bind {
-                        self.temperatureMaxLabel.text = $0.fahrenheitToCelsius.formatAsDegree
-                    }
-                    weatherViewModel.temperature.min.bind {
-                        self.temperatureMinLabel.text = $0.fahrenheitToCelsius.formatAsDegree
-                    }
-                } else {
-                    weatherViewModel.temperature.current.bind {
-                        self.temperatureLabel.text = $0.formatAsDegree
-                    }
-                    weatherViewModel.temperature.max.bind {
-                        self.temperatureMaxLabel.text = $0.formatAsDegree
-                    }
-                    weatherViewModel.temperature.min.bind {
-                        self.temperatureMinLabel.text = $0.formatAsDegree
-                    }
+            if SettingsViewModel.shared.selectedUnit == .celsius {
+                weatherViewModel.temperature.current.bind {
+                    self.temperatureLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                }
+                weatherViewModel.temperature.max.bind {
+                    self.temperatureMaxLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                }
+                weatherViewModel.temperature.min.bind {
+                    self.temperatureMinLabel.text = $0.fahrenheitToCelsius.formatAsDegree
+                }
+            } else {
+                weatherViewModel.temperature.current.bind {
+                    self.temperatureLabel.text = $0.formatAsDegree
+                }
+                weatherViewModel.temperature.max.bind {
+                    self.temperatureMaxLabel.text = $0.formatAsDegree
+                }
+                weatherViewModel.temperature.min.bind {
+                    self.temperatureMinLabel.text = $0.formatAsDegree
                 }
             }
         }

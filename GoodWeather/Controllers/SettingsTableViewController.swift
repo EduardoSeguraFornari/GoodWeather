@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SettingsDelegate: class {
-    func settingsDoneButtonDidTapped(settingsViewModel: SettingsViewModel)
+    func settingsDoneButtonDidTapped()
 }
 class SettingsTableViewController: UITableViewController {
 
@@ -17,11 +17,11 @@ class SettingsTableViewController: UITableViewController {
 
     public weak var delegate: SettingsDelegate?
 
-    private var settingsViewModel = SettingsViewModel()
+    private var settingsViewModel = SettingsViewModel.shared
 
     @IBAction private func doneButtonDidTapped() {
         if let delegate = delegate {
-            delegate.settingsDoneButtonDidTapped(settingsViewModel: settingsViewModel)
+            delegate.settingsDoneButtonDidTapped()
             dismiss(animated: true)
         }
     }
